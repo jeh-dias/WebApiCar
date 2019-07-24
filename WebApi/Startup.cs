@@ -9,8 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Repository.Interface;
 using WebApiCar.Business;
 using WebApiCar.Business.Interfaces;
+using WebApiCar.Domain;
 using WebApiCar.Repository;
 using WebApiCar.Services;
 using WebApiCar.Services.Interfaces;
@@ -35,7 +37,7 @@ namespace WebApi
 
         public void DependencyInjection(IServiceCollection services)
         {
-            //services.AddSingleton<Repository<Car>, IRepository<Car>>();
+            services.AddSingleton<IRepository<Car>, CarRepository>();
             services.AddTransient<ICarBusiness, CarBusiness>();
             services.AddTransient<ICarServices, CarServices>();
         }
