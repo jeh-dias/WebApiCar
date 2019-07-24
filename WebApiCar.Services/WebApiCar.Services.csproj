@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApiCar.Business\WebApiCar.Business.csproj" />
+    <ProjectReference Include="..\WebApiCar.Domain\WebApiCar.Domain.csproj" />
+    <ProjectReference Include="..\WebApiCar.Repository\WebApiCar.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
