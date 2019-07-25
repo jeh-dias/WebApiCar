@@ -11,7 +11,7 @@ namespace WebApiCar.Repository.Query
     {
         private string query = "select * from Car";
 
-        public IEnumerable<Car> GetCar()
+        public IEnumerable<Car> GetCars()
         {
             return ConnectionFactory.GetConnection().Query<Car>(query);
         }

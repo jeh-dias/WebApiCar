@@ -23,7 +23,7 @@ namespace WebApiCar.Business
 
         public IEnumerable<Car> GetList()
         {
-            return _carRepository.List();
+            return _carRepository.ListAll();
         }
 
         public List<Car> GetCarByMarca(string marca)
