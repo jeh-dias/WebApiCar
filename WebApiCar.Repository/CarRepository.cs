@@ -9,9 +9,9 @@ namespace WebApiCar.Repository
     public class CarRepository : Repository<Car>
     {
 
-        public Car GetCarByMarca(string marca)
+        public List<Car> GetCarByMarca(string marca)
         {
-            return _list.Find(x => x.marca == marca);
+            return _list.FindAll(x => x.marca == marca);
         }
     }
 }

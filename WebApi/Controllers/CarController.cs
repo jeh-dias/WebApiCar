@@ -22,21 +22,22 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Car>> Get()
+        public IEnumerable<Car> Get()
         {
             return _carServices.List();
         }
 
         [HttpGet("{marca}")]
-        public ActionResult<Car> Get(string marca)
+        public List<Car> Get(string marca)
         {
             return _carServices.GetByMarca(marca);
         }
 
         [HttpPost]
-        public void Post([FromBody] Car car)
+        public ActionResult<string> Post([FromBody] Car car)
         {
             _carServices.Insert(car);
+            return Ok("success");
         }
     }
 }

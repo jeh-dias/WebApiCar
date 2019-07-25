@@ -9,7 +9,7 @@ namespace WebApiCar.Business.Interfaces
     {
         bool Add(Car car);
 
-        Car GetCarByMarca(string marca);
-        List<Car> GetList();
+        List<Car> GetCarByMarca(string marca);
+        IEnumerable<Car> GetList();
     }
 }

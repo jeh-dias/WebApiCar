@@ -15,17 +15,17 @@ namespace WebApiCar.Services
         {
             _carBusiness = carBusiness;
         }
-        public List<Car> List()
+        public IEnumerable<Car> List()
         {
             return _carBusiness.GetList();
         }
 
-        public Car GetByMarca(string marca)
+        public List<Car> GetByMarca(string marca)
         {
             return _carBusiness.GetCarByMarca(marca);
         }
 
-        public List<Car> Insert(Car car)
+        public IEnumerable<Car> Insert(Car car)
         {
             _carBusiness.Add(car);
             return _carBusiness.GetList();

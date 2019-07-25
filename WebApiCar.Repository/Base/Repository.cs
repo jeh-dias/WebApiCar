@@ -1,7 +1,9 @@
-﻿using Repository.Interface;
-using System;
+﻿using Dapper;
+using Repository.Interface;
 using System.Collections.Generic;
-using System.Text;
+using WebApiCar.Domain;
+using WebApiCar.Repository.Query;
+using WebApiCar.Repository.Utilities;
 
 namespace Repository.Base
 {
@@ -15,6 +17,7 @@ namespace Repository.Base
     {
         public static List<T> _list { get; set; }
         public static object _syncObj = new object();
+        private string query = "select * from Car";
 
         public Repository()
         {
@@ -36,9 +39,13 @@ namespace Repository.Base
             return true;
         }
 
-        public List<T> GetList()
+        public IEnumerable<T> List()
         {
-            return _list;
+            var conn = ConnectionFactory.GetConnection();
+
+            var result = conn.Query<T>(query);
+
+            return result;
         }
     }
 }

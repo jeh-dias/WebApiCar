@@ -21,12 +21,12 @@ namespace WebApiCar.Business
 
         }
 
-        public List<Car> GetList()
+        public IEnumerable<Car> GetList()
         {
-            return _carRepository.GetList();
+            return _carRepository.List();
         }
 
-        public Car GetCarByMarca(string marca)
+        public List<Car> GetCarByMarca(string marca)
         {
             return _carRepository.GetCarByMarca(marca);
         }

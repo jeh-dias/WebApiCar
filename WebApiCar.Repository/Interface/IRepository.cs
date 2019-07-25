@@ -9,6 +9,6 @@ namespace Repository.Interface
     public interface IRepository<T> 
     {
         bool Add(T obj);
-        List<T> GetList();
+        IEnumerable<T> List();
     }
 }

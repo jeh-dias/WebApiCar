@@ -7,10 +7,10 @@ namespace WebApiCar.Services.Interfaces
 {
     public interface ICarServices
     {
-        List<Car> List();
+        IEnumerable<Car> List();
 
-        List<Car> Insert(Car car);
+        IEnumerable<Car> Insert(Car car);
 
-        Car GetByMarca(string marca);
+        List<Car> GetByMarca(string marca);
     }
 }
