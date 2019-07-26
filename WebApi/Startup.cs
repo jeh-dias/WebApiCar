@@ -32,14 +32,20 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             DependencyInjection(services);
+            ConnectionString(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         public void DependencyInjection(IServiceCollection services)
         {
-            services.AddSingleton<IRepository<Car>, CarRepository>();
+            services.AddSingleton<IRepository<Car>, CarRepository>(Configuration);
             services.AddTransient<ICarBusiness, CarBusiness>();
             services.AddTransient<ICarServices, CarServices>();
+        }
+
+        public void ConnectionString(IServiceCollection services)
+        {
+            Configuration = Configuration.GetSection("DefaultConnection");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
