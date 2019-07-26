@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using WebApiCar.Domain;
 using Repository.Base;
 using WebApiCar.Repository.Query;
+using Microsoft.Extensions.Configuration;
 
 namespace WebApiCar.Repository
 {
     public class CarRepository : Repository<Car>
     {
-        private string connectionString;
-        public CarRepository()
+        public CarRepository(IConfiguration config): base (config) 
         {
         }
 

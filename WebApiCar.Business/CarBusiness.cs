@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repository.Interface;
+using System;
 using System.Collections.Generic;
 using WebApiCar.Business.Interfaces;
 using WebApiCar.Domain;
@@ -8,10 +9,10 @@ namespace WebApiCar.Business
 {
     public class CarBusiness : ICarBusiness
     {
-        private CarRepository _carRepository;
-        public CarBusiness()
+        private IRepository<Car> _carRepository;
+        public CarBusiness(IRepository<Car> carRepository)
         {
-            _carRepository = new CarRepository();
+            _carRepository = carRepository;
         }
 
         public bool Add(Car car)
@@ -29,7 +30,8 @@ namespace WebApiCar.Business
 
         public List<Car> GetCarByMarca(string marca)
         {
-            return _carRepository.GetCarByMarca(marca);
+            //return _carRepository.GetCarByMarca(marca);
+            return null;
         }
     }
 }

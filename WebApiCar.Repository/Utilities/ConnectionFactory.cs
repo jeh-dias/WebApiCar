@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
+using Dapper;
 
 namespace WebApiCar.Repository.Utilities
 {
     public class ConnectionFactory
     {
-        private static string _sqlConnection =
-            "server=191.234.179.75;database=DeveloperDB03;user=developers;password=dev123DEV123";
 
 
-        public static SqlConnection GetConnection()
+        public static SqlConnection GetConnection(string connectionString)
         {
-            var conn = new SqlConnection(_sqlConnection);
+            var conn = new SqlConnection(connectionString);
 
             conn.Open();
 
